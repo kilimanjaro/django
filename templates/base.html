@@ -16,12 +16,12 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
     <div class="container-fluid">
-        <span class="navbar-brand mx-5 mb-0 font-weight-bold font-italic">Django - Python Web Programming</span>
+    <span class="navbar-brand mx-5 mb-0 font-weight-bold font-italic">Django - Python Web Programming</span>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item mx-1">
                     <a class="nav-link text-white" href="{% url 'home' %}">Home</a>
@@ -47,7 +47,7 @@
                         <li><a class="dropdown-item" href="{% url 'photo:album_add' %}">Album</a></li>
                         <li><a class="dropdown-item" href="{% url 'photo:photo_add' %}">Photo</a></li>
                     </ul>
-                </li>
+            </li>
 
                 <li class="nav-item dropdown mx-1">
                     <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
@@ -60,7 +60,7 @@
                         <li><a class="dropdown-item" href="{% url 'photo:album_change' %}">Album</a></li>
                         <li><a class="dropdown-item" href="{% url 'photo:photo_change' %}">Photo</a></li>
                     </ul>
-                </li>
+            </li>
 
                 <li class="nav-item dropdown mx-1">
                     <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
@@ -72,29 +72,29 @@
                         <li><a class="dropdown-item" href="{% url 'blog:post_archive' %}">Archive</a></li>
                         <li><a class="dropdown-item" href="{% url 'blog:search' %}">Search</a></li>
                     </ul>
-                </li>
-            </ul>
+            </li>
+        </ul>
 
             <form class="d-flex" action="" method="post"> {% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="global search" name="search_word">
-            </form>
+        </form>
 
             <ul class="navbar-nav ms-5 me-5">
                 <li class="nav-item dropdown mx-1">
-                    {% if user.is_active %}
+                {% if user.is_active %}
                     <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
                         <i class="fas fa-user"></i>&ensp;{% firstof user.get_short_name user.get_username %}&ensp;
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <form action="{% url 'logout' %}" method="post">
-                                {% csrf_token %}
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
                                 <button type="submit" class="dropdown-item">Log out</button>
-                            </form>
+                    </form>
                         </li>
                         <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
                     </ul>
-                    {% else %}
+                {% else %}
                     <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
                         <i class="fas fa-user"></i>&ensp;Anonymous&ensp;
                     </a>
@@ -102,9 +102,9 @@
                         <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
                         <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
                     </ul>
-                    {% endif %}
-                </li>
-            </ul>
+                {% endif %}
+            </li>
+        </ul>
         </div>
     </div>
 </nav>
