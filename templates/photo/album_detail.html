@@ -20,21 +20,19 @@
     <hr style="margin: 0 0 20px 0;"> 
 
     <div class="row"> 
-
         {% for photo in object.photo_set.all %} 
-        <div class="col-md-3 mb-5"> 
+        <div class="col-6 col-sm-4 col-md-3 mb-4 d-flex flex-column align-items-center"> 
             <div class="thumbnail">
                 <a href="{{ photo.get_absolute_url }}">
-                    <img src="{{ photo.image.thumb_url }}" style="width: 100%;">
+                    <img src="{{ photo.image.thumb_url }}" width="128" height="128" style="object-fit:cover; display:block; margin:auto;">
                 </a>
             </div>
-            <ul>
+            <ul class="list-unstyled mt-2 text-center">
                 <li class="font-italic">{{ photo.title }}</li>
                 <li class="font-italic">{{ photo.upload_dt|date:"Y-m-d" }}</li>
             </ul>
         </div>
         {% endfor %} 
-
     </div>
 
 {% endblock %}

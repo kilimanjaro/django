@@ -7,34 +7,39 @@
 .thumbnail {
     border: 3px solid #ccc;
 }
+.album-link {
+    text-decoration: none !important;
+}
 </style>
 {% endblock %}
 
 {% block content %} 
 
-    {% for item in object_list %} 
-
-    <div class="mt-5"> 
-        <a class="h2" href="{% url 'photo:album_detail' item.id %}">
-            {{ item.name }}</a>&emsp;
-        <span class="font-italic h5">{{ item.description }}</span>
-    </div>
-
-    <hr style="margin: 0 0 20px 0;"> 
-
     <div class="row"> 
-        {% for photo in item.photo_set.all|slice:":5" %} 
-        <div class="ml-5"> 
-            <div class="thumbnail">
-                <a href="{{ photo.get_absolute_url }}">
-                    <img src="{{ photo.image.thumb_url }}" style="width: 100%;">
-                </a>
-            </div>
+    {% for item in object_list %} 
+    <div class="col-12 col-md-6 mb-5"> 
+        <div class="mt-5"> 
+            <a class="h2 album-link" href="{% url 'photo:album_detail' item.id %}">
+                {{ item.name }}</a>&emsp;
+            <span class="font-italic h5">{{ item.description }}</span>
         </div>
-        {% endfor %} 
-    </div>
 
+        <hr style="margin: 0 0 20px 0;"> 
+
+        <div class="row"> 
+            {% for photo in item.photo_set.all|slice:":5" %} 
+            <div class="col-6 col-sm-4 col-md-3 mb-4 d-flex flex-column align-items-center"> 
+                <div class="thumbnail">
+                    <a href="{{ photo.get_absolute_url }}">
+                        <img src="{{ photo.image.thumb_url }}" width="128" height="128" style="object-fit:cover; display:block; margin:auto;">
+                    </a>
+                </div>
+            </div>
+            {% endfor %} 
+        </div>
+    </div>
     {% endfor %} 
+    </div>
 
 {% endblock %}
 

@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 
 from django.contrib.auth.mixins import AccessMixin
 from django.views.defaults import permission_denied
+from .forms import CustomUserCreationForm
 
 
 class HomeView(TemplateView):
@@ -11,7 +12,7 @@ class HomeView(TemplateView):
 
 class UserCreateView(CreateView):
   template_name="registration/register.html"
-  form_class = UserCreationForm
+  form_class = CustomUserCreationForm
   success_url = reverse_lazy('register_done')
 
 class UserCreateDoneTV(TemplateView):
