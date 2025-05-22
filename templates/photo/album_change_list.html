@@ -2,6 +2,15 @@
 
 {% block title %}album_change_list.html{% endblock %}
 
+{% block extra-style %}
+{{ block.super }}
+<style>
+.thumbnail {
+    border: 3px solid #ccc;
+}
+</style>
+{% endblock %}
+
 {% block content %}
 
     <h1>Album Change - {{user}}</h1>

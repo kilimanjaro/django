@@ -3,6 +3,16 @@
 
 {% block title %}album_form.html{% endblock %}
 
+{% block extra-style %}
+{{ block.super }}
+<style>
+.required_field {
+    font-weight: bold;
+    color: red;
+}
+</style>
+{% endblock %}
+
 {% block content %}
     <h1>Album-Photo Create/Update - {{user}}</h1>
     <p class="font-italic">This is a creation or update form for your album using PhotoInlineFormSet.</p>

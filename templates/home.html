@@ -3,8 +3,8 @@
 {% load static %}
 {% block title %}Welcome{% endblock %}
 
-
 {% block extra-style %}
+{{ block.super }}
 <style type="text/css">
 .home-image {
     background-image: url("{% static 'img/lion.jpg' %}");

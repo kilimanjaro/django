@@ -2,6 +2,12 @@
 
 {% block title %}photo_detail.html{% endblock %}
 
+{% block extra-style %}
+{{ block.super }}
+<style>
+</style>
+{% endblock %}
+
 {% block content %}
 
     <h2 class="mt-5">{{ object.title }}</h2> 
