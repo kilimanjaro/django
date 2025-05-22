@@ -5,8 +5,8 @@
 
 {% block content %}
 
-    <h1>Bookmark Create/Update - {{user}}</h1>
-    <p class="font-italic">This is a creation or update form for your bookmark.</p>
+    <h1>Bookmark Create</h1>
+    <p class="font-italic">Please enter your bookmark title and URL.</p>
 
     {% if form.errors %}
     <div class="alert alert-danger">
@@ -33,7 +33,7 @@
 
         <div class="form-group">
             <div class="offset-sm-2 col-sm-5">
-                <input type="submit" value="Submit" class="btn btn-info"/>
+                <input type="submit" value="Add" class="btn btn-info"/>
             </div>
         </div>
 

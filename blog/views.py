@@ -7,7 +7,7 @@ from django.conf import settings
 from django.views.generic import FormView    # generic View : 공통적인 로직을 만들어 놓은 뷰
 from blog.forms import PostSearchForm
 from django.db.models import Q
-from django.shortcuts import render             # shortcut : 자주 사용되는 함수, 내장함수
+from django.shortcuts import render          # shortcut : 자주 사용되는 함수, 내장함수
 
 
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -21,7 +21,7 @@ from mysite.views import OwnerOnlyMixin
 
 class PostLV(ListView):
   model = Post
-  template_name = "blog/post_all.html"
+  template_name = "blog/post_all.html"  # 어떤 템플릿으로 연결할 지 정함. 서버재시작 필요없음.
   context_object_name = 'posts'
   paginate_by = 2
 
