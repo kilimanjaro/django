@@ -24,7 +24,7 @@
         .navbar-nav .nav-item {
             height: 100%;
             display: flex;
-            align-items: center;
+            align-items: stretch;
             position: relative;
         }
 
@@ -35,12 +35,20 @@
             display: flex;
             align-items: center;
             transition: all 0.3s ease;
+            line-height: 60px;
+        }
+
+        /* 드롭다운 화살표 제거 */
+        .dropdown-toggle::after {
+            display: none;
         }
 
         /* 호버 효과 - 배경 흰색, 글자 녹색 */
         .navbar-nav .nav-item:hover > .nav-link {
             background-color: white;
             color: #198754 !important;
+            margin: 0;
+            padding: 0 16px;
         }
 
         /* 드롭다운 메뉴 스타일 및 애니메이션 */
@@ -58,6 +66,7 @@
             position: absolute;
             top: 100%;
             left: 0;
+            background-color: white;
         }
 
         /* 드롭다운 메뉴 표시 애니메이션 */
@@ -71,16 +80,18 @@
         .dropdown-item {
             padding: 10px 16px;
             transition: all 0.2s ease;
+            color: #198754;
         }
 
         .dropdown-item:hover {
-            background-color: #f8f9fa;
-            color: #198754;
+            background-color: #198754;
+            color: white;
         }
 
         /* 드롭다운 구분선 */
         .dropdown-divider {
             margin: 0;
+            border-top: 1px solid rgba(25, 135, 84, 0.1);
         }
     </style>
     {% endblock %}
